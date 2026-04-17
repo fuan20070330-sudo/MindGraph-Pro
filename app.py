@@ -68,7 +68,8 @@ with st.sidebar:
         st.toast("评估数据已存入动态序列")
 
 # --- 6. 主界面呈现 ---
-st.title("🧠 MindGraph Pro v7.9")
+st.title("🧠 灵图 Pro (MindGraph)")
+st.subheader("基于 MSCM 多维应激协同干预模型的动态监测系统")
 st.caption("校园应激动力学监测系统 | SDFMU 医学信息与人工智能学院")
 
 tab_diag, tab_trend = st.tabs(["🎯 实时诊断", "📉 趋势溯源"])
