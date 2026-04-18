@@ -149,13 +149,30 @@ if not st.session_state.logged_in:
             else: st.sidebar.error("验证失败")
 
 # --- 6. 登录后的科研主界面 ---
+
+# --- 7. 登录后的科研主界面 ---
 else:
-    st.sidebar.title(f"👤 {st.session_state.username}")
+    st.sidebar.title(f"👋 你好, {st.session_state.username}")
     if st.sidebar.button("安全退出"):
         st.session_state.logged_in = False
         st.rerun()
 
+    # --- 【新增/移动：全局锁定标题栏】 ---
+    st.title("🧠 灵图 Pro (MindGraph)")
+    st.markdown("#### 基于 **MSCM 多维应激协同干预模型** 的动态监测系统")
+    
+    # 这里加上你的个性化署名
+    st.markdown(f"""
+        <div style="background-color: rgba(0, 251, 255, 0.05); padding: 10px; border-radius: 5px; border-left: 3px solid #00fbff; margin-bottom: 20px;">
+            <span style="color: #00fbff;">开发者：</span> fuan &nbsp;&nbsp; | &nbsp;&nbsp;
+            <span style="color: #00fbff;">所属：</span> SDFMU医学信息与人工智能学院 &nbsp;&nbsp; | &nbsp;&nbsp;
+            <span style="color: #00fbff;">版本：</span> v5.0 Academic
+        </div>
+    """, unsafe_allow_html=True)
+
+    # 接着是之前选择分型和 Tab 的逻辑
     user_type = st.sidebar.selectbox("选择当前评价分型", list(PROFILE_MATRIX.keys()))
+
     
     with st.sidebar:
         st.markdown("---")
